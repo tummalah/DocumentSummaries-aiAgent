@@ -10,9 +10,11 @@ import java.util.stream.Collectors;
 public class EmailAttachmentService {
 
     private final AttachmentAgent agent;
+    private final APInvoiceDataStructureAgent invoiceAgent;
 
-    public EmailAttachmentService(AttachmentAgent agent) {
+    public EmailAttachmentService(AttachmentAgent agent, APInvoiceDataStructureAgent invoiceAgent) {
         this.agent = agent;
+        this.invoiceAgent=invoiceAgent;
     }
 
     public String processFile(String path) {
@@ -29,5 +31,12 @@ public class EmailAttachmentService {
 
         // Reduce: One final summary of all partial summaries
         return agent.summarize("Create a final executive summary from these notes: " + partialSummaries);
+    }
+
+    public String getPayload(String summary) {
+        // Load and Parse
+        
+        // Reduce: One final summary of all partial summaries
+        return invoiceAgent.invoicePayload( summary);
     }
 }

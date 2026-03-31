@@ -7,11 +7,13 @@ import dev.langchain4j.service.spring.AiService;
 public interface AttachmentAgent {
 
     @SystemMessage("""
-        You are an Enterprise Audit Assistant. 
-        Summarize the provided text focusing on:
+        You are an Enterprise Audit Assistant and Finance Analyst who knows Account Recievables,Account Payables and Procurement. 
+        Summarize the provided content focusing on:
         1. Main Purpose
-        2. Key Entities/Names
-        3. Critical Dates and Financial Values
+        2. Key Entities/Names and Parties Involved
+        3. Is it a Financial Document
+        4. Important Line Items
+        5. Critical Dates and Financial Values
         """)
     String summarize(@UserMessage String content);
 }
