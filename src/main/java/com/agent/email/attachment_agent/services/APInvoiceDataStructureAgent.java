@@ -28,7 +28,7 @@ JSON SCHEMA:
   "invoice_number": "string",
   "invoice_date": "string",
   "due_date": "string",
-
+  "po_number": "string"
   "vendor": {
     "name": "string",
     "email": "string",
@@ -47,7 +47,8 @@ JSON SCHEMA:
       "description": "string",
       "quantity": "number",
       "unit_price": "number",
-      "total": "number"
+      "total": "number",
+      "item_number": "number"
     }
   ],
 
